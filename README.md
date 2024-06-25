@@ -10,7 +10,8 @@ Boston House Price Prediction
 ## Introduction
 
 ## Data Understanding
-[Download dataset](https://www.kaggle.com/datasets/vikrishnan/boston-house-prices)
+[Download dataset](https://www.kaggle.com/datasets/vikrishnan/boston-house-prices) <br>
+Each record in the database describes a Boston suburb or town. The data was drawn from the Boston Standard Metropolitan Statistical Area (SMSA) in 1970. The attributes are deﬁned as follows (taken from the UCI Machine Learning Repository1)
 - CRIM: per capita crime rate by town
 - ZN: proportion of residential land zoned for lots over 25,000 sq.ft.
 - INDUS: proportion of non-retail business acres per town
@@ -23,15 +24,40 @@ Boston House Price Prediction
 - TAX: full-value property-tax rate per \$10,000
 - PTRATIO: pupil-teacher ratio by town 
 - B: 1000(Bk−0.63)^2 where Bk is the proportion of blacks by town
-    - Shows non-linear formula, when the higher difference from (Bk−0.63) results higher B.
-    - In intuitive way, not all blacks are from the lower class, so the larger black population also indicates a more comfortable place for black people from the upper class when racial issues matter in society.
+    - Shows non-linear formula, when the higher difference from (Bk−0.63) results higher B value.
+    - In intuitive way, not all blacks are from the lower class, so the larger black population also indicates a more comfortable place for black people from the upper class (imply higher MEDV) when racial issues matter in society.
 - LSTAT: \%lower status of the population
 - MEDV: Median value of owner-occupied homes in $1000s
 
 ## Business Goals
-
+Better understanding about how social, demographic, and geographic contexts can affect people buying house behaviour
 
 ## Methodology
+- Feature Classification:
+    - Categorical Features: Features with fewer than 10 unique values.
+    - Numerical Features: Features with 10 or more unique values.
+- Numerical Features Skewness Check:
+    - We examine the skewness of numerical features to identify distribution asymmetry.
+- Numerical Transformation Techniques:
+    - Various distribution transformation techniques are applied to minimize the mean skewness values of numerical features.
+    - The Yeo-Johnson power transformation technique produced the lowest mean skewness, making it our chosen method for predictive modeling.
+    - The target feature is also transformed using this technique to enhance model accuracy.
+- Outlier Imputation:
+    - Outliers are imputed using the Winsorizing technique to prepare data for predictive modeling.
+Model Scoring:
+- R² score is the primary metric for evaluating model performance.
+- Base Model Building:
+    - We use base models without parameter tuning, including:
+        - LinearRegression
+        - SVR (Support Vector Regression)
+        - XGBoost
+    - KFold Cross-Validation with 5 folds is used to validate the model's scores.
+- Model Selection with PyCaret:
+    - PyCaret is utilized to identify the best model based on performance metrics.
+- Final Model Selection:
+    - The CatBoost model is selected due to its superior performance on cross-validation, test data, and unseen data.
+Model Evaluation:
+- The PyCaret model evaluation method is employed for quick and effective model assessment.
 
 ## Results and Analysis
 
