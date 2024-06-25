@@ -13,7 +13,7 @@ Boston House Price Prediction
 [Download dataset](https://www.kaggle.com/datasets/vikrishnan/boston-house-prices) <br>
 Each record in the database describes a Boston suburb or town. The data was drawn from the Boston Standard Metropolitan Statistical Area (SMSA) in 1970. The attributes are deﬁned as follows (taken from the UCI Machine Learning Repository1)
 - CRIM: per capita crime rate by town
-- ZN: proportion of residential land zoned for lots over 25,000 sq.ft.
+- ZN: proportion of residential land zoned for lots over 25,000 sq. ft.
 - INDUS: proportion of non-retail business acres per town
 - CHAS: Charles River dummy variable (= 1 if tract bounds river; 0 otherwise)
 - NOX: nitric oxides concentration (parts per 10 million)
@@ -59,8 +59,8 @@ Each record in the database describes a Boston suburb or town. The data was draw
 Model Evaluation:
 - The PyCaret model evaluation method is employed for quick and effective model assessment.
 
-## Results and Analysis
 
+## Results and Analysis
 ### Features Characteristics
 - There are two categorical features, 'CHAS' and 'RAD', each with fewer than 10 unique values.
 - For numerical features, there are:
@@ -80,10 +80,12 @@ Model Evaluation:
         - INDUS
         - RM
 
+Let's examine the distributions of our numerical features below.
 ![boston house numerical features distributions](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/0756104e-e1c6-44ca-b062-5dd5d6d412f4)
+Given the skewed distributions, we likely have many outliers in our numerical features. Let's examine the image below
 
 ![boston house outliers](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/16dc03f6-5c3c-4acd-85c4-81de659cc5e1)
-
+As you can see, there are many outliers in our numerical features. We'll use the Winsorization technique to handle these outliers.
 
 ### Features Correlation to Target MEDV
 ![image](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/c6a105e1-e13f-4110-bf97-ca4bc49d4140)
@@ -98,9 +100,6 @@ Model Evaluation:
 ### PyCaret Models Comparisons
 ![image](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/652df81c-5829-4620-809f-a55d1cf9b0d9)
 
-![image](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/fa09beb8-e29c-4976-bf86-9a9da7cf03ed)
-
-
 Catboost Model Test and Validation
 - cross-val mean r2: 0.8441
 - data-test r2: 0.8492
@@ -109,9 +108,6 @@ Catboost Model Test and Validation
 - data-test mean absolute error: 2.1285
 - data-unseen mean absolute error: 1.9143
 
+Since the CatBoost model outperformed others on test and unseen data, we selected it as our main model. Let's examine the important features.
 ![image](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/e07830ee-5b65-4632-af65-cce1f69e524a)
-![image](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/1259ac9f-7513-42dc-969b-c54ef9eba2ad)
-![image](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/40a5eb98-07e5-4bae-891e-71f1f4da5ace)
-
-
-## Conclusion
+![image](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/fa09beb8-e29c-4976-bf86-9a9da7cf03ed)
