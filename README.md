@@ -30,8 +30,7 @@ Each record in the database describes a Boston suburb or town. The data was draw
 - MEDV: Median value of owner-occupied homes in $1000s
 
 ## Business Goals
-- Ideally, predicting Boston house prices supports strategic decision-making in real estate investment, market analysis, urban planning, financial services, and more. It helps stakeholders make informed decisions, optimize resource allocation, and ultimately drive economic growth and sustainability.
-- Better understanding how social, demographic, and geographic contexts affect people's house-buying behavior.
+- Better understanding of how social, demographic, and geographic contexts affect people's house-buying behavior.
 
 ## Methodology
 - Feature Classification:
@@ -61,5 +60,47 @@ Model Evaluation:
 - The PyCaret model evaluation method is employed for quick and effective model assessment.
 
 ## Results and Analysis
+
+### Features Characteristics
+- There are two categorical features, 'CHAS' and 'RAD', each with fewer than 10 unique values.
+- For numerical features, there are:
+    - 5 features have high skewed values (skew > 1):
+        - CRIM
+        - ZN
+        - DIS
+        - B
+        - MEDV (target value)
+    - 5 features have moderately skewed values (skew 0.5-1.0):
+        - NOX
+        - AGE
+        - TAX
+        - PTRATIO
+        - LSTAT
+    - 2 features have near-zero skewed values:
+        - INDUS
+        - RM
+
+### Features Correlation to Target MEDV
+![image](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/699d36c3-9942-4c4b-b750-ed06812bb2d8)
+- Features with negative correlations indicate factors that tend to decrease housing prices (e.g., high crime rate, pollution, lower status population).
+- Features with positive correlations suggest factors that contribute to higher housing prices (e.g., larger lots, more rooms, proximity to the Charles River).
+
+### Predictive Modeling
+
+#### PyCaret Models Comparisons
+![image](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/652df81c-5829-4620-809f-a55d1cf9b0d9)
+
+Catboost Model Test and Validation
+- cross-val mean r2: 0.8441
+- data-test r2: 0.8492
+- data-unseen r2: 0.8288
+- cross-val mean mean absolute error: 1.9880
+- data-test mean absolute error: 2.1285
+- data-unseen mean absolute error: 1.9143
+
+![image](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/1259ac9f-7513-42dc-969b-c54ef9eba2ad)
+
+![image](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/40a5eb98-07e5-4bae-891e-71f1f4da5ace)
+
 
 ## Conclusion
