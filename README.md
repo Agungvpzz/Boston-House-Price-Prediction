@@ -24,8 +24,8 @@ Each record in the database describes a Boston suburb or town. The data was draw
 - TAX: full-value property-tax rate per \$10,000
 - PTRATIO: pupil-teacher ratio by town 
 - B: 1000(Bk−0.63)^2 where Bk is the proportion of blacks by town
-    - Shows non-linear formula, when the higher difference from (Bk−0.63) results higher B value.
-    - In intuitive way, not all blacks are from the lower class, so the larger black population also indicates a more comfortable place for black people from the upper class (imply higher MEDV) when racial issues matter in society.
+    - Shows a non-linear formula, when the higher difference from (Bk−0.63) results higher B value.
+    - In an intuitive way, not all blacks are from the lower class, so the larger black population also indicates a more comfortable place for black people from the upper class (imply higher MEDV) when racial issues matter in society.
 - LSTAT: \%lower status of the population
 - MEDV: Median value of owner-occupied homes in $1000s
 
@@ -80,15 +80,26 @@ Model Evaluation:
         - INDUS
         - RM
 
+![boston house numerical features distributions](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/0756104e-e1c6-44ca-b062-5dd5d6d412f4)
+
+![boston house outliers](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/16dc03f6-5c3c-4acd-85c4-81de659cc5e1)
+
+
 ### Features Correlation to Target MEDV
-![image](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/699d36c3-9942-4c4b-b750-ed06812bb2d8)
+![image](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/c6a105e1-e13f-4110-bf97-ca4bc49d4140)
 - Features with negative correlations indicate factors that tend to decrease housing prices (e.g., high crime rate, pollution, lower status population).
 - Features with positive correlations suggest factors that contribute to higher housing prices (e.g., larger lots, more rooms, proximity to the Charles River).
 
-### Predictive Modeling
+### Features Correlation Interpretations
+![image](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/699d36c3-9942-4c4b-b750-ed06812bb2d8)
 
-#### PyCaret Models Comparisons
+## Predictive Modeling
+
+### PyCaret Models Comparisons
 ![image](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/652df81c-5829-4620-809f-a55d1cf9b0d9)
+
+![image](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/fa09beb8-e29c-4976-bf86-9a9da7cf03ed)
+
 
 Catboost Model Test and Validation
 - cross-val mean r2: 0.8441
@@ -98,8 +109,8 @@ Catboost Model Test and Validation
 - data-test mean absolute error: 2.1285
 - data-unseen mean absolute error: 1.9143
 
+![image](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/e07830ee-5b65-4632-af65-cce1f69e524a)
 ![image](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/1259ac9f-7513-42dc-969b-c54ef9eba2ad)
-
 ![image](https://github.com/Agungvpzz/Boston-House-Price-Prediction/assets/48642326/40a5eb98-07e5-4bae-891e-71f1f4da5ace)
 
 
