@@ -30,7 +30,8 @@ Each record in the database describes a Boston suburb or town. The data was draw
 - MEDV: Median value of owner-occupied homes in $1000s
 
 ## Business Goals
-Better understanding about how social, demographic, and geographic contexts can affect people buying house behaviour
+- Ideally, predicting Boston house prices supports strategic decision-making in real estate investment, market analysis, urban planning, financial services, and more. It helps stakeholders make informed decisions, optimize resource allocation, and ultimately drive economic growth and sustainability.
+- Better understanding how social, demographic, and geographic contexts affect people's house-buying behavior.
 
 ## Methodology
 - Feature Classification:
@@ -44,8 +45,8 @@ Better understanding about how social, demographic, and geographic contexts can 
     - The target feature is also transformed using this technique to enhance model accuracy.
 - Outlier Imputation:
     - Outliers are imputed using the Winsorizing technique to prepare data for predictive modeling.
-Model Scoring:
-- R² score is the primary metric for evaluating model performance.
+- Model Scoring:
+    - R² score is the primary metric for evaluating model performance.
 - Base Model Building:
     - We use base models without parameter tuning, including:
         - LinearRegression
